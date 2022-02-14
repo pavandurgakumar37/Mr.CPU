@@ -1,0 +1,44 @@
+<%- include ('partials/header') %>
+<br><br><br>
+<% for (var t = 0; t < top.length; t++) {%>
+    <button type="button" class="collapsible"><%= top[t].name %> </button>
+    <div class="content">
+        <div class="Box">
+            <div class="flex-container">
+                <% for (var i = 0; i < top.length; i++) {%> 
+                    <% for (var j = 0; j < top.length; j++) {%>
+                        <% if ((i !== j) && (top[i].name === top[t].name)) { %>
+                            <div class="product-column">
+                                    <a style="color:black" class="iron-man" href="/comparem/<%= top[i]._id %>/<%= top[j]._id %>"><%= top[i].name %> vs <%= top[j].name %> </a>
+                                    <br>
+                            </div>
+                        <% } else { %>
+                            <% continue; %>
+                        <% } %>  
+                    <% } %>
+                <% } %>
+            </div> 
+        </div>
+    </div>
+<% } %> 
+
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+            content.style.display = "none";
+            } else {
+            content.style.display = "block";
+            }
+        });
+        }
+    </script>
+
+</body>
+<%- include ('partials/footer') %>
+</html>

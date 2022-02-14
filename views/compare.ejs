@@ -1,0 +1,40 @@
+<%- include ('partials/header') %>
+<br><br><br>
+<style>
+    .upperdiv{
+        display: flex;
+        margin: 50px;
+    }
+    .indi{
+        border-radius: 10px;
+        padding: 20px 5px 20px 5px;
+        background-color: #f8edeb;
+        color:aquamarine;
+        margin: 0 10px 0 10px;
+    }
+    .itme{
+        color:grey;
+    }
+    div img{
+        padding-bottom: 15px;
+    }
+    .itme:hover{
+        color:rgb(0, 0, 0);
+    }
+</style>
+
+    <div class="upperdiv">
+        <div class="indi">
+            <img src="/images/mobs.jpg" alt="mob"><br>
+            <center><a class="itme" href="/comparem">Go to compare</a></center>
+        </div>
+        <div class="indi">
+            <img src="/images/laps.jpg" alt="laps"><br>
+            <center><a class="itme" href="/comaprel">Go to compare</a></center>
+        </div>
+    </div>
+
+
+</body>
+<%- include ('partials/footer') %>
+</html>

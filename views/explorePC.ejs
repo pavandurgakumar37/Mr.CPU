@@ -1,0 +1,175 @@
+<%- include ('partials/header') %>
+<br><br><br><br><br><br>
+<p>After using templating</p>
+    <div>
+        <p>
+            Here are some processors in decresing order of their performance 
+        </p>
+        <button type="button" class="collapsible">Intel</button>
+        <div class="content">
+            <div class="Box">
+                <hr style="height:2px;border-width:0;color:black;background-color:black"><h4>Intel Core i9</h4><br>
+                <div class="flex-container">
+                    <span>11th Gen:</span>
+                    <br>
+                    <% top.forEach(function(device){  %> 
+                        <% if((device.name).indexOf("i9-11")!== -1) {%> 
+                        <div class="product-column">
+                            <div class="product">
+                                    <a href="<%= device.link %> "><%= device.name %></a>
+                            </div>
+                        </div>
+                        <% } %>
+                    <% }); %>
+                    <br>
+                    <br>
+                    <div class="flex-container">
+                        <br><br>
+                        <span>10th Gen:</span>
+                        <br>
+                        <% top.forEach(function(device){  %> 
+                            <% if((device.name).indexOf("i9-10")!== -1) {%> 
+                            <div class="product-column">
+                                <div class="product">
+                                        <a href="<%= device.link %> "><%= device.name %></a>
+                                </div>
+                            </div>
+                            <% } %>
+                        <% }); %>
+                    </div>
+                    <br><br>
+                </div>
+                <hr style="height:2px;border-width:0;color:black;background-color:black"><h4>Intel Core i7</h4><br>
+                <div class="flex-container">
+                    <span>11th Gen:</span>
+                    <br>
+                    <% top.forEach(function(device){  %> 
+                        <% if((device.name).indexOf("i7-11")!== -1) {%> 
+                        <div class="product-column">
+                            <div class="product">
+                                    <a href="<%= device.link %> "><%= device.name %></a>
+                            </div>
+                        </div>
+                        <% } %>
+                    <% }); %>
+                    <br>
+                    <br>
+                </div>
+                <br><br>
+                <div class="flex-container">
+                    <span>10th Gen:</span>
+                    <br>
+                    <% top.forEach(function(device){  %> 
+                        <% if((device.name).indexOf("i7-10")!== -1) {%> 
+                        <div class="product-column">
+                            <div class="product">
+                                    <a href="<%= device.link %> "><%= device.name %></a>
+                            </div>
+                        </div>
+                        <% } %>
+                    <% }); %>
+                </div>
+                <br><br>
+                <hr style="height:2px;border-width:0;color:black;background-color:black"><h4>Intel Core i5</h4><br>
+                <div class="flex-container">
+                    <span>11th Gen:</span>
+                    <br>
+                    <% top.forEach(function(device){  %> 
+                        <% if((device.name).indexOf("i5-11")!== -1) {%> 
+                        <div class="product-column">
+                            <div class="product">
+                                    <a href="<%= device.link %> "><%= device.name %></a>
+                            </div>
+                        </div>
+                        <% } %>
+                    <% }); %>
+                    <br>
+                    <br>
+                </div>
+                <br><br>
+                <div class="flex-container">
+                    <span>10th Gen:</span>
+                    <br>
+                    <% top.forEach(function(device){  %> 
+                        <% if((device.name).indexOf("i5-10")!== -1) {%> 
+                        <div class="product-column">
+                            <div class="product">
+                                    <a href="<%= device.link %> "><%= device.name %></a>
+                            </div>
+                        </div>
+                        <% } %>
+                    <% }); %>
+                </div>
+                <br><br>
+                <div class="flex-container">
+                    <span>9th Gen:</span>
+                    <br>
+                    <% top.forEach(function(device){  %> 
+                        <% if((device.name).indexOf("i5-9")!== -1) {%> 
+                        <div class="product-column">
+                            <div class="product">
+                                    <a href="<%= device.link %> "><%= device.name %></a>
+                            </div>
+                        </div>
+                        <% } %>
+                    <% }); %>
+                </div>
+            </div> 
+        </div>
+
+        <button type="button" class="collapsible">AMD Ryzen</button>
+        <div class="content">
+            <div class="Box">
+                <div class="flex-container">
+                    <% top.forEach(function(device){  %> 
+                        <% if((device.name).indexOf("Ryzen")!== -1) {%> 
+                        <div class="product-column">
+                            <div class="product">
+                                    <a href="<%= device.link %>"><%= device.name %></a>
+                            </div>
+                        </div>
+                        <% } %>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="collapsible">Apple</button>
+        <div class="content">
+            <div class="Box">
+                <div class="flex-container">
+                    <% top.forEach(function(device){  %> 
+                        <% if((device.name).indexOf("Apple")!== -1) {%> 
+                        <div class="product-column">
+                            <div class="product">
+                                    <a href="<%= device.link %>"><%= device.name %></a>
+                            </div>
+                        </div>
+                        <% } %>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+            content.style.display = "none";
+            } else {
+            content.style.display = "block";
+            }
+        });
+        }
+    </script>
+</body>
+<%- include ('partials/footer') %>
+</html>

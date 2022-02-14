@@ -1,0 +1,146 @@
+<%- include ('partials/header') %>
+<br><br><br><br><br><br>
+<p>After using templating</p>
+    <div>
+        <p>
+            Here are some processors from their companies: 
+        </p>
+        <button type="button" class="collapsible">Snapdragon</button>
+        <div class="content">
+            <div class="Box">
+                <div class="flex-container">
+                    <% top.forEach(function(device){  %> 
+                        <% if((device.name).indexOf("Snapdragon")!== -1) {%> 
+                        <div class="product-column">
+                            <div class="product">
+                                    <a href="/templates/<%= device._id %> "><%= device.name %></a>
+                            </div>
+                        </div>
+                        <% } %>
+                    <% }); %>
+                </div>
+            </div> 
+        </div>
+
+        <button type="button" class="collapsible">Google</button>
+        <div class="content">
+            <div class="Box">
+                <div class="flex-container">
+                    <% top.forEach(function(device){  %> 
+                        <% if((device.name).indexOf("Google")!== -1) {%> 
+                        <div class="product-column">
+                            <div class="product">
+                                    <a href="/templates/<%= device._id %> "><%= device.name %></a>
+                            </div>
+                        </div>
+                        <% } %>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="collapsible">Apple</button>
+        <div class="content">
+            <div class="Box">
+                <div class="flex-container">
+                    <% top.forEach(function(device){  %> 
+                        <% if((device.name).indexOf("Apple")!== -1) {%> 
+                        <div class="product-column">
+                            <div class="product">
+                                    <a href="/templates/<%= device._id %> "><%= device.name %></a>
+                            </div>
+                        </div>
+                        <% } %>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="collapsible">Mediatek</button>
+        <div class="content">
+            <div class="Box">
+                <div class="flex-container">
+                    <% top.forEach(function(device){  %> 
+                        <% if((device.name).indexOf("Mediatek")!== -1) {%> 
+                        <div class="product-column">
+                            <div class="product">
+                                    <a href="/templates/<%= device._id %> "><%= device.name %></a>
+                            </div>
+                        </div>
+                        <% } %>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="collapsible">Exynos</button>
+        <div class="content">
+            <div class="Box">
+                <div class="flex-container">
+                    <% top.forEach(function(device){  %> 
+                        <% if((device.name).indexOf("Exynos")!== -1) {%> 
+                        <div class="product-column">
+                            <div class="product">
+                                    <a href="/templates/<%= device._id %> "><%= device.name %></a> 
+                            </div>
+                        </div>
+                        <% } %>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="collapsible">Kirin</button>
+        <div class="content">
+            <div class="Box">
+                <div class="flex-container">
+                    <% top.forEach(function(device){  %> 
+                        <% if((device.name).indexOf("Kirin")!== -1) {%> 
+                        <div class="product-column">
+                            <div class="product">
+                                    <a href="/templates/<%= device._id %> "><%= device.name %></a>
+                            </div>
+                        </div>
+                        <% } %>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="collapsible">UNISOC</button>
+        <div class="content">
+            <div class="Box">
+                <div class="flex-container">
+                    <% top.forEach(function(device){  %> 
+                        <% if((device.name).indexOf("UNISOC")!== -1) {%> 
+                        <div class="product-column">
+                            <div class="product">
+                                    <a href="/templates/<%= device._id %> "><%= device.name %></a>
+                            </div>
+                        </div>
+                        <% } %>
+                    <% }); %>
+                </div>
+            </div> 
+        </div>
+    </div>
+
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+
+        for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+            content.style.display = "none";
+            } else {
+            content.style.display = "block";
+            }
+        });
+        }
+    </script>
+</body>
+<%- include ('partials/footer') %>
+</html>

@@ -1,0 +1,28 @@
+/*
+ejs from yt:
+<h1>Items</h1>
+
+<ul>
+    <% item.forEach(function(device){  %> 
+        <li><%= device.name %> 
+            <ul>
+                <% Object.keys(device).forEach(function(key){ %>
+                    <li><strong><% key %></strong>: <%= device[key] %> </li>
+                <%  });%>  
+            </ul>
+        </li>
+    <% }); %> 
+</ul>
+
+app.get('/show',(req,res)=>{
+    const v = [{name:"PDK", laptop:"hp"},{name:"Karthik",laptop:"hp"}]
+    const db = client.db (dbName);
+
+    const collection = db.collection('Details'); // Find some documents
+    collection.find({}).toArray (function(err, v) {
+         assert.equal (err, null);
+         //res.render('templates',{top:v})
+         res.render('snapdragon',{top:v})
+    //});
+})
+*/

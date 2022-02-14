@@ -1,0 +1,53 @@
+<%- include ('partials/header') %>
+<br><br><br><br>
+<p>Now see below the processors of different types of devices like</p>
+
+<button type="button" class="collapsible">Devices</button>
+        <div class="content">
+            <div class="Box">
+                <div class="flex-container">
+                        <div class="product-column">
+                            <div class="product">
+                                    <a href="/mobile">Mobiles</a>
+                            </div>
+                            <div style="margin-left: 10px;" class="product">
+                                <a href="/pc">Computers / Laptops</a>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="collapsible">Others</button>
+        <div class="content">
+            <div class="Box">
+                <div class="flex-container">
+                        <div class="product-column">
+                            <div class="product">
+                                    <a href="/comingsoon">Others</a>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            var coll = document.getElementsByClassName("collapsible");
+            var i;
+    
+            for (i = 0; i < coll.length; i++) {
+            coll[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var content = this.nextElementSibling;
+                if (content.style.display === "block") {
+                content.style.display = "none";
+                } else {
+                content.style.display = "block";
+                }
+            });
+            }
+        </script>
+
+</body>
+<%- include ('partials/footer') %>
+</html>

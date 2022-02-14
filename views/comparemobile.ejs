@@ -1,0 +1,567 @@
+<%- include ('partials/header') %>
+<%- include ('partials/comcss') %>
+<br><br><br>
+<p>Now we're going to compare two processors on based on their values</p>
+<style>
+  .table-responsive{
+    width: 700px;
+  }/*
+  @media (max-width:320px){
+    .table-responsive{
+      width: 100px;
+    }
+    
+  }
+</style>
+<style>*/
+
+  table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  table caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+  }
+  
+  table tr {
+    background-color: #f8f8f8;
+    border: 1px solid #ddd;
+    padding: .35em;
+  }
+  
+  table th,
+  table td {
+    padding: .625em;
+    text-align: center;
+  }
+  
+  table th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  
+  @media screen and (max-width: 600px) {
+    table {
+      border: 0;
+    }
+  
+    table caption {
+      font-size: 1.3em;
+    }
+    
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    
+    table tr {
+      border-bottom: 3px solid #ddd;
+      display: block;
+      margin-bottom: .625em;
+    }
+    
+    table td {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      font-size: .8em;
+      /*text-align: right;*/
+    }
+    
+    
+    table td::before {
+      /*
+      * aria-label has no advantage, it won't be read inside a table
+      content: attr(aria-label);
+      */
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    
+    table td:last-child {
+      border-bottom: 0;
+    }/*
+    .notnes{
+      margin:inherit;
+    }*/
+  }
+  </style>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700%7CRaleway:700' rel='stylesheet' type='text/css'>
+<center><div class="leaveme">
+    <h4>Comparison of <%= top[0].name %> and <%= top[1].name %></h4>
+
+<div class="table-responsive">
+    <table class="table table-striped fa-check text-successtable-border border-light">
+      <thead class="border-light">
+        <tr>
+          <th scope="col"></th>
+          <th scope="col"><strong><%= top[0].name %></strong></th>
+          <th scope="col"><strong><%= top[1].name %></strong></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="col">Name</th>
+          <td data-label="<%= top[0].name %>"><%= top[0].name %></td>
+          <td data-label="Name"><%= top[1].name %></td>
+        </tr>
+        <tr>
+          <th scope="col">Class</th>
+          <td data-label="<%= top[0].name %>"><%= top[0].class %></td>
+          <td data-label="Class"><%= top[1].class %></td>
+        </tr>
+        <tr>
+          <th scope="col">Antutu Score</th>
+          <td data-label="Antutu Score"><%= top[0].antutu %></td>
+          <td data-label="Antutu Score"><%= top[1].antutu %></td>
+        </tr>
+        <tr>
+          <th scope="col">Geekbench singlecore</th>
+          <td data-label="Geekbench singlecore"><%= top[0].singleCore %></td>
+          <td data-label="Geekbench singlecore"><%= top[1].SingleCore %></td>
+        </tr>
+        <tr>
+          <th scope="col">Geekbench multicore</th>
+          <td data-label="Geekbench multicore"><%= top[0].multiCore %></td>
+          <td data-label="Geekbench multicore"><%= top[1].multiCore %></td>
+        </tr>
+        <tr>
+            <th scope="col">CPU Rating</th>
+            <td data-label="CPU Rating"><%= top[0].cpu %></td>
+            <td data-label="CPU Rating"><%= top[1].cpu %></td>
+          </tr>
+          <tr>
+            <th scope="col">Gaming Rating</th>
+            <td data-label="Gaming Rating"><%= top[0].gaming %></td>
+            <td data-label="Gaming Rating"><%= top[1].gaming %></td>
+          </tr>
+          <tr>
+            <th scope="col">Battery Rating</th>
+            <td data-label="Battery Rating"><%= top[0].battery %></td>
+            <td data-label="Battery Rating"><%= top[1].battery %></td>
+          </tr>
+          <tr>
+            <th scope="col">Mr.CPU Rating</th>
+            <td data-label="Mr.CPU Rating"><%= top[0].myReview %></td>
+            <td data-label="Mr.CPU Rating"><%= top[1].myReview %></td>
+          </tr>
+          <tr>
+            <th scope="col">No.of Cores</th>
+            <td data-label="No.of Cores"><%= top[0].cores %></td>
+            <td data-label="No.of Cores"><%= top[1].cores %></td>
+          </tr>
+          <tr>
+            <th scope="col">Clock Speed</th>
+            <td data-label="Clock Speed"><%= top[0].clkspeed %></td>
+            <td data-label="Clock Speed"><%= top[1].clkspeed %></td>
+          </tr>
+          <tr>
+            <th scope="col">CPU Frequency</th>
+            <td data-label="CPU Frequency"><%= top[0].cpuFreq %></td>
+            <td data-label="CPU Frequency"><%= top[1].cpuFreq %></td>
+          </tr>
+          <tr>
+            <th scope="col">Instruction Set</th>
+            <td data-label="Instruction Set"><%= top[0].instrSet %></td>
+            <td data-label="Instruction Set"><%= top[1].instrSet %></td>
+          </tr>
+          <tr>
+            <th scope="col">HDR</th>
+            <td data-label="HDR"><%= top[0].hdr %></td>
+            <td data-label="HDR"><%= top[1].hdr %></td>
+          </tr>
+          <tr>
+            <th scope="col">Color Depth</th>
+            <td data-label="Color Depth"><%= top[0].colorDepth %></td>
+            <td data-label="Color Depth"><%= top[1].colorDepth %></td>
+          </tr>
+          <tr>
+            <th scope="col">Color Gamut</th>
+            <td data-label="Color Gamut"><%= top[0].colorgamut %></td>
+            <td data-label="Color Gamut"><%= top[1].colorgamut %></td>
+          </tr>
+          <tr>
+            <th scope="col">Max Display</th>
+            <td data-label="Max Display"><%= top[0].maxDis %></td>
+            <td data-label="Max Display"><%= top[1].maxDis %></td>
+          </tr>
+          <tr>
+            <th scope="col">Max Camera</th>
+            <td data-label="Max Camera"><%= top[0].maxCam %></td>
+            <td data-label="Max Camera"><%= top[1].maxCam %></td>
+          </tr>
+          <tr>
+            <th scope="col">Video Capture</th>
+            <td data-label="Video Capture"><%= top[0].videoCap%></td>
+            <td data-label="Video Capture"><%= top[1].videoCap %></td>
+          </tr>
+          <tr>
+            <th scope="col">Video PlayBack</th>
+            <td data-label="Video PlayBack"><%= top[0].videoPlay %></td>
+            <td data-label="Video PlayBack"><%= top[1].videoPlay %></td>
+          </tr>
+          <tr>
+            <th scope="col">L1 Cache</th>
+            <td data-label="L1 Cache"><%= top[0].Lone %></td>
+            <td data-label="L1 Cache"><%= top[1].Lone %></td>
+          </tr>
+          <tr>
+            <th scope="col">L2 Cache</th>
+            <td data-label="L2 Cache"><%= top[0].Ltwo %></td>
+            <td data-label="L2 Cache"><%= top[1].Ltwo %></td>
+          </tr>
+          <tr>
+            <th scope="col">L3 Cache</th>
+            <td data-label="L3 Cache"><%= top[0].Lthree %></td>
+            <td data-label="L3 Cache"><%= top[1].Lthree %></td>
+          </tr>
+          <tr>
+            <th scope="col">Process</th>
+            <td data-label="Process"><%= top[0].process %></td>
+            <td data-label="Process"><%= top[1].process %></td>
+          </tr>
+          <tr>
+            <th scope="col">TDP</th>
+            <td data-label="TDP"><%= top[0].tdp %></td>
+            <td data-label="TDP"><%= top[1].tdp %></td>
+          </tr>
+          <tr>
+            <th scope="col">GPU Name</th>
+            <td data-label="GPU Name"><%= top[0].gpu %></td>
+            <td data-label="GPU Name"><%= top[1].gpu %></td>
+          </tr>
+          <tr>
+            <th scope="col">GPU Architecture</th>
+            <td data-label="GPU Architecture"><%= top[0].gpuArc %></td>
+            <td data-label="GPU Architecture"><%= top[1].gpuArc %></td>
+          </tr>
+          <tr>
+            <th scope="col">GPU Frequency</th>
+            <td data-label="GPU Frequency"><%= top[0].gpuFreq %></td>
+            <td data-label="GPU Frequency"><%= top[1].gpuFreq %></td>
+          </tr>
+          <tr>
+            <th scope="col">Execution Units</th>
+            <td data-label="Execution Units"><%= top[0].exeunits %></td>
+            <td data-label="Execution Units"><%= top[1].exeunits %></td>
+          </tr>
+          <tr>
+            <th scope="col">Shading Units</th>
+            <td data-label="Shading Units"><%= top[0].shadunits %></td>
+            <td data-label="Shading Units"><%= top[1].shadunits %></td>
+          </tr>
+
+          <tr>
+            <th scope="col">Flops</th>
+            <td data-label="Flops"><%= top[0].Flops %></td>
+            <td data-label="Flops"><%= top[1].Flops %></td>
+          </tr>
+          <tr>
+            <th scope="col">Vulkan Version</th>
+            <td data-label="Vulkan Version"><%= top[0].vulkan %></td>
+            <td data-label="Vulkan Version"><%= top[1].vulkan %></td>
+          </tr>
+          <tr>
+            <th scope="col">OpenCL Version</th>
+            <td data-label="OpenCL Version"><%= top[0].opencl %></td>
+            <td data-label="OpenCL Version"><%= top[1].opencl %></td>
+          </tr>
+          <tr>
+            <th scope="col">DirectX Version</th>
+            <td data-label="DirectX Version"><%= top[0].directX %></td>
+            <td data-label="DirectX Version"><%= top[1].directX %></td>
+          </tr>
+          <tr>
+            <th scope="col">Memory Type</th>
+            <td data-label="Memory Type"><%= top[0].memoryType %></td>
+            <td data-label="Memory Type"><%= top[1].memoryType %></td>
+          </tr>
+          <tr>
+            <th scope="col">Memory Frequency</th>
+            <td data-label="Memory Frequency"><%= top[0].memFreq %></td>
+            <td data-label="Memory Frequency"><%= top[1].memFreq %></td>
+          </tr>
+          <tr>
+            <th scope="col">Bus</th>
+            <td data-label="Bus"><%= top[0].bus %></td>
+            <td data-label="Bus"><%= top[1].bus %></td>
+          </tr>
+          <tr>
+            <th scope="col">Max BandWidth</th>
+            <td data-label="Max BandWidth"><%= top[0].maxBand %></td>
+            <td data-label="Max BandWidth"><%= top[1].maxBand %></td>
+          </tr>
+          <tr>
+            <th scope="col">Storage Type</th>
+            <td data-label="Storage Type"><%= top[0].memType %></td>
+            <td data-label="Storage Type"><%= top[1].memType %></td>
+          </tr>
+          <tr>
+            <th scope="col">Max Size</th>
+            <td data-label="Max Size"><%= top[0].maxSize %></td>
+            <td data-label="Max Size"><%= top[1].maxSize %></td>
+          </tr>
+          <tr>
+            <th scope="col">NPU Name</th>
+            <td data-label="NPU Name"><%= top[0].npu %></td>
+            <td data-label="NPU Name"><%= top[1].npu %></td>
+          </tr>
+          <tr>
+            <th scope="col">Modem</th>
+            <td data-label="Modem"><%= top[0].modem %></td>
+            <td data-label="Modem"><%= top[1].modem %></td>
+          </tr>
+
+          <tr>
+            <th scope="col">4G</th>
+            <td data-label="4G"><%= top[0].fourg %></td>
+            <td data-label="4G"><%= top[1].fourg %></td>
+          </tr>
+
+          <tr>
+            <th scope="col">5G</th>
+            <td data-label="5G"><%= top[0].fiveg %></td>
+            <td data-label="5G"><%= top[1].fiveg %></td>
+          </tr>
+          <tr>
+            <th scope="col">Peak Download Speed</th>
+            <td data-label="Peak Download Speed"><%= top[0].peakDown %></td>
+            <td data-label="Peak Download Speed"><%= top[1].peakDown %></td>
+          </tr>
+          <tr>
+            <th scope="col">Peak Upload Speed</th>
+            <td data-label="Peak Upload Speed"><%= top[0].peakUp %></td>
+            <td data-label="Peak Upload Speed"><%= top[1].peakUp %></td>
+          </tr>
+          <tr>
+            <th scope="col">WiFi Version</th>
+            <td data-label="WiFi Version"><%= top[0].wifi %></td>
+            <td data-label="WiFi Version"><%= top[1].wifi %></td>
+          </tr>
+          <tr>
+            <th scope="col">Bluetooth Version</th>
+            <td data-label="Bluetooth Version"><%= top[0].bluetooth %></td>
+            <td data-label="Bluetooth Version"><%= top[1].bluetooth %></td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+</body>
+<%- include ('partials/footer') %>
+</html>
+
+
+<!--
+    </div></center>
+<center>
+    <div class="totalsup">
+        <div class="main-container">
+        <section class="pricing-2">
+        <div class="container">
+        <div class="row pricing-tables">
+        <div class="col-md-3 no-pad-right hidden-sm">
+            <div class="pricing-table feature-list">
+            <ul class="features">
+            <li><strong>&nbsp;</strong></li>
+            <li><strong>Storage Space</strong></li>
+            <li><strong>Unique Logins</strong></li>
+            <li><strong>Offsite Backup</strong></li>
+            <li><strong>Support Hours</strong></li>
+            <li><strong>Bandwidth</strong></li>
+            </ul>
+            </div>
+        </div>
+    
+        <div class="col-md-3 no-pad hidden-sm">
+            <div class="pricing-table">
+            <ul class="features">
+                <li><strong>Processor</strong></li>
+                <li><strong><%= top[0].name %> </strong></li>
+                <li><%= top[0].class %></li>
+                <li><strong><%= top[0].antutu %> </strong></li>
+                <li><%= top[0].singleCore %></li>
+                <li><%= top[0].multiCore %></li>
+                <li><%= top[0].cpu %></li>
+                <li><%= top[0].gaming %></li>
+                <li><%= top[0].battery %></li>
+                <li><%= top[0].myReview %></li>
+                <li><%= top[0].cores %></li>
+                <li><%= top[0].clkspeed %></li>
+
+                <li><%= top[0].cpuFreq %></li>
+                <li><%= top[0].instrSet %></li>
+                <li><%= top[0].hdr %></li>
+                <li><%= top[0].colorDepth %></li>
+                <li><%= top[0].colorgamut %></li>
+                <li><%= top[0].maxDis %></li>
+                <li><%= top[0].maxCam %></li>
+                <li><%= top[0].videoCap %></li>
+                <li><%= top[0].videoPlay %></li>
+                <li><%= top[0].Lone %></li>
+                <li><%= top[0].Ltwo %></li>
+                <li><%= top[0].Lthree %></li>
+                <li><%= top[0].process %></li>
+                <li><%= top[0].tdp %></li>
+                <li><%= top[0].gpu %></li>
+                <li><%= top[0].gpuArc %></li>
+                <li><%= top[0].gpuFreq %></li>
+                <li><%= top[0].exeunits %></li>
+                <li><%= top[0].shadunits %></li>
+                <li><%= top[0].Flops %></li>
+                <li><%= top[0].vulkan %></li>
+                <li><%= top[0].opencl %></li>
+                <li><%= top[0].directX %></li>
+                <li><%= top[0].memoryType %></li>
+                <li><%= top[0].memFreq %></li>
+                <li><%= top[0].bus %></li>
+                <li><%= top[0].maxBand %></li>
+                <li><%= top[0].memType %></li>
+                <li><%= top[0].maxSize %></li>
+                <li><%= top[0].npu %></li>
+                <li><%= top[0].modem %></li>
+                <li><%= top[0].fourg %></li>
+                <li><%= top[0].fiveg %></li>
+                <li><%= top[0].peakDown %></li>
+                <li><%= top[0].peakUp %></li>
+                <li><%= top[0].wifi %></li>
+                <li><%= top[0].bluetooth %></li>
+            </ul>
+            </div>
+        </div>
+        <div class="col-md-3 no-pad hidden-sm">
+            <div class="pricing-table emphasis">
+            <ul class="features">
+            <li><strong>Compare</strong></li>
+            <li><strong>Name</strong></li>
+            <li><strong>Class</strong></li>
+            <li><strong>Antutu Score</strong></li>
+            <li><strong>Geekbench singlecore</strong></li>
+            <li><strong>Geekbench multicore</strong></li>
+            <li><strong>CPU Rating</strong></li>
+            <li><strong>Gaming Rating</strong></li>
+            <li><strong>Battery Rating</strong></li>
+            <li><strong>Mr.CPU Rating</strong></li>
+            <li><strong>No.of Cores</strong></li>
+            <li><strong>Clock Speed</strong></li>
+            
+            <li><strong>CPU Frequency</strong></li>
+            <li><strong>Instruction Set</strong></li>
+            <li><strong>HDR</strong></li>
+            <li><strong>Color Depth</strong></li>
+            <li><strong>color Gamut</strong></li>
+            <li><strong>Max Display</strong></li>
+            <li><strong>Max Camera</strong></li>
+            <li><strong>Video Capture</strong></li>
+            <li><strong>Video PlayBack</strong></li>
+            <li><strong>L1 Cache</strong></li>
+            <li><strong>L2 Cache</strong></li>
+            <li><strong>L3 Cache</strong></li>
+            <li><strong>Process</strong></li>
+            <li><strong>TDP</strong></li>
+            <li><strong>GPU Name</strong></li>
+            <li><strong>GPU Architecture</strong></li>
+            <li><strong>GPU Frequency</strong></li>
+            <li><strong>Execution Units</strong></li>
+            <li><strong>Shading Units</strong></li>
+            <li><strong>Flops</strong></li>
+            <li><strong>Vulkan Version</strong></li>
+            <li><strong>OpenCL version</strong></li>
+            <li><strong>DirectX version</strong></li>
+            <li><strong>Memory Type</strong></li>
+            <li><strong>Memory Frequency</strong></li>
+            <li><strong>Bus</strong></li>
+            <li><strong>Max Bandwidth</strong></li>
+            <li><strong>Storage Type</strong></li>
+            <li><strong>Max Size</strong></li>
+            <li><strong>NPU Name</strong></li>
+            <li><strong>Modem</strong></li>
+            <li><strong>4G</strong></li>
+            <li><strong>5G</strong></li>
+            <li><strong>Peak Download Speed</strong></li>
+            <li><strong>Peak Upload Speed</strong></li>
+            <li><strong>Wifi Version</strong></li>
+            <li><strong>Bluetooth version</strong></li>
+            </ul>
+            
+            </div>
+        </div>
+        <div class="col-md-3 no-pad-left hidden-sm">
+            <div class="pricing-table">
+            <ul class="features">
+                <li><strong>Processor</strong></li>
+                <li><strong><%= top[1].name %> </strong></li>
+                <li><%= top[1].class %></li>
+                <li><%= top[1].antutu %></li>
+                <li><%= top[1].singleCore %></li>
+                <li><%= top[1].multiCore %></li>
+                <li><%= top[1].cpu %></li>
+                <li><%= top[1].gaming %></li>
+                <li><%= top[1].battery %></li>
+                <li><%= top[1].myReview %></li>
+                <li><%= top[1].cores %></li>
+                <li><%= top[1].clkspeed %></li>
+                
+                <li><%= top[1].cpuFreq %></li>
+                <li><%= top[1].instrSet %></li>
+                <li><%= top[1].hdr %></li>
+                <li><%= top[1].colorDepth %></li>
+                <li><%= top[1].colorgamut %></li>
+                <li><%= top[1].maxDis %></li>
+                <li><%= top[1].maxCam %></li>
+                <li><%= top[1].videoCap %></li>
+                <li><%= top[1].videoPlay %></li>
+                <li><%= top[1].Lone %></li>
+                <li><%= top[1].Ltwo %></li>
+                <li><%= top[1].Lthree %></li>
+                <li><%= top[1].process %></li>
+                <li><%= top[1].tdp %></li>
+                <li><%= top[1].gpu %></li>
+                <li><%= top[1].gpuArc %></li>
+                <li><%= top[1].gpuFreq %></li>
+                <li><%= top[1].exeunits %></li>
+                <li><%= top[1].shadunits %></li>
+                <li><%= top[1].Flops %></li>
+                <li><%= top[1].vulkan %></li>
+                <li><%= top[1].opencl %></li>
+                <li><%= top[1].directX %></li>
+                <li><%= top[1].memoryType %></li>
+                <li><%= top[1].memFreq %></li>
+                <li><%= top[1].bus %></li>
+                <li><%= top[1].maxBand %></li>
+                <li><%= top[1].memType %></li>
+                <li><%= top[1].maxSize %></li>
+                <li><%= top[1].npu %></li>
+                <li><%= top[1].modem %></li>
+                <li><%= top[1].fourg %></li>
+                <li><%= top[1].fiveg %></li>
+                <li><%= top[1].peakDown %></li>
+                <li><%= top[1].peakUp %></li>
+                <li><%= top[1].wifi %></li>
+                <li><%= top[1].bluetooth %></li>
+            </ul>
+
+            </div>
+        </div>
+        </div>
+        </div>
+        </section>
+        </div>
+    </div>
+</center>
+-->

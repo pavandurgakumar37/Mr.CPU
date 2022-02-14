@@ -1,0 +1,210 @@
+<style>
+
+.area , .intro  , .alltables , .allinfo{
+  display: flex;
+  /*flex-wrap: wrap;*/
+}
+.company-logo{
+  /*padding-left: 30px;*/
+  margin-left: 20px;
+  border-radius: 10px;
+  transform: translateY(40px);
+  height: 170px;
+  width: 800px;
+}
+.container1
+{
+  position:relative;
+  width:900px;
+  margin : 30px;
+  display:flexbox;
+  flex-wrap: wrap;
+  justify-content:space-around;
+}
+.container1 .card , .container1 .card1
+{
+  position:relative;
+  width:250px;
+  background:#bee1e6;
+  display:flex;
+  /*flex-wrap: wrap;*/
+  justify-content:center;
+  align-items:center;
+  height:300px;
+  border-radius:4px;
+  text-align:center;
+  overflow:hidden;
+  transition:0.5s;
+}
+.container1 .card:hover , .container1 .card1:hover
+{
+  transform:translateY(-10px);
+  box-shadow:0 15px 35px rgba(0,0,0,.5);
+}
+.container1 .card:before , .container1 .card1:before
+{
+  content:'';
+  position:absolute;
+  top:0;
+  left:-50%;
+  width:50%;
+  height:50%;
+  background:#bee1e6;
+  pointer-events:none;
+  z-index:1;
+}
+.percent
+{
+  position:relative;
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  box-shadow: inset 0 0 50px #000;
+  background:#bee1e6;
+  z-index:1000;
+}
+.percent .num
+{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  display:flex;
+  /*flex-wrap: wrap;*/
+  justify-content:center;
+  align-items:center;
+  border-radius:50%;
+}
+.percent .num h2
+{
+  color:#777;
+  font-weight:700;
+  font-size:40px;
+  transition:0.5s;
+}
+.card:hover .percent .num h2 , .card1:hover .percent .num h2
+{
+  color:#777;
+  font-size:60px;
+  border-radius: 10px;
+}
+.percent .num h2 span
+{
+  color:#777;
+  font-size:24px;
+  transition:0.5s;
+}
+.card:hover .percent .num h2 span , .card1:hover .percent .num h2 span
+{
+  color:#777;
+  
+}
+.text
+{
+  position:relative;
+  color:#777;
+  margin-top:20px;
+  font-weight:700;
+  font-size:18px;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  transition:0.5s;
+}
+.card:hover , .card1:hover
+{
+  color:#fff;
+  border-radius: 10px;
+  transition: 0.5s;
+}
+.icon
+{
+  position:relative;
+  width:150px;
+  height:150px;
+  z-index:1000;
+}
+svg circle
+{
+  width:100%;
+  height:100%;
+  fill:none;
+  stroke:#bee1e6;
+  stroke-width:10;
+  stroke-linecap:round;
+  transform:translate(5px,5px);
+}
+
+.name{
+  margin : 20px 0 39px 0px;
+}
+
+.matter , .antutu , .geek , .phones{
+  margin: 15px 70px
+}
+.intro ,.cputable, .gputable , .networktable , .multimediatable , .memorytable , .displaytable{
+    background-color: whitesmoke;
+    padding: 20px;
+    margin : 10px 10px 20px 10px;
+    border-radius: 10px;
+}
+.results{
+  background-color: whitesmoke;
+  margin : 10px;
+  border-radius: 10px;
+}
+.cputable , .networktable , .multimediatable{
+  margin: 20px;
+}
+.gputable , .memorytable{
+  margin:20px ;
+}
+
+.cell-s{color:#646464}
+.cell-h{color:#212529}
+.cell-h{-webkit-box-flex:0;-ms-flex:0 0 100%;flex:0 0 100%;padding:8px 5px 2px 0;text-align:left;font-weight:700}
+.cell-s{-webkit-box-flex:0;-ms-flex:0 0 100%;flex:0 0 100%;padding:8px 5px 2px 10px;text-align:left;}
+.cell-h{width:40%;vertical-align:top}
+.name-table{
+   color : #01161e;
+   padding : -10px;
+}
+
+.det {
+  padding : 15px;
+  margin : 0 0 10px 0;
+  border-radius: 10px;/*
+  box-shadow:
+       inset 0 -3em 4em rgba(0,0,0,0.1),
+             0 0  0 2px rgb(255,255,255),
+             1em 0.3em 3em rgba(0,0,0,0.3);*/
+}
+.namet{
+  text-align: center;
+  font-weight: 700;
+  padding : 10px;
+  margin : 30px 10px 20px 0;
+  border-radius: 10px;/*
+  box-shadow:
+       inset 0 -3em 4em rgba(0,0,0,0.1),
+             0 0  0 2px rgb(255,255,255),
+             1em 0.3em 3em rgba(0,0,0,0.3);*/
+}
+
+.haha {
+  margin : 15px 15px 25px 15px;
+}
+
+.rate{
+  margin: 0 0 80px 0;
+}
+
+ul{
+  padding: 0 0 0 50px ;
+}
+.give-info{
+  padding: 0 0 0 70px ;
+}
+
+
+</style>

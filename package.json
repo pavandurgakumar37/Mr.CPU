@@ -1,0 +1,21 @@
+{
+  "name": "ZZTempPro",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.2",
+    "install": "^0.13.0",
+    "mongoose": "^6.1.4",
+    "request": "^2.88.2",
+    "table-sort-js": "^1.6.8",
+    "underscore": "^1.13.2"
+  }
+}

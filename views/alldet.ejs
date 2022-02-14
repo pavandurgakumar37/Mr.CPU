@@ -1,0 +1,440 @@
+<%- include ('partials/header') %>
+<br><br><br><br><br>
+<style>
+    
+    @media (max-width: 500px){
+  tr{
+     display: flex; 
+     flex-direction: row;
+     flex-wrap: wrap;
+  }
+  th, td{
+     width: 100%;
+  }
+  .container1{
+      display: flex;
+      flex-direction: column-reverse;
+      flex-wrap: wrap;
+  }
+}
+</style>
+<div class= "intro">
+    <div >
+            <% if((data.name).indexOf("Snapdragon")!== -1) {%>
+                <img class="company-logo" src="/images/snap.jpeg" alt="sd">
+            <% } %>
+            <% if((data.name).indexOf("Kirin")!== -1) {%>
+                <img class="company-logo" src="/images/kirin.jpeg" alt="kirin">
+            <% } %>
+            <% if((data.name).indexOf("Google")!== -1) {%>
+                <img class="company-logo" src="/images/google.jpeg" alt="Google">
+            <% } %>
+            <% if((data.name).indexOf("Mediatek")!== -1) {%>
+                <img class="company-logo" src="/images/mediatek.png" alt="Mediatek">
+            <% } %>
+            <% if((data.name).indexOf("Apple")!== -1) {%>
+                <img class="company-logo" src="/images/apple.jpeg" alt="apple">
+            <% } %>
+            <% if((data.name).indexOf("UNISOC")!== -1) {%>
+                <img class="company-logo" src="/images/unisoc.jpeg" alt="UNISOC">
+            <% } %>
+        
+    </div>
+    <div class="matter">
+        <p>
+            <h1 class="name"><p><b><%= data.name %></b></p></h1>
+            <%= data.name %> &#8208; an <%= data.cores %> -core chipset that was announced on <%= data.year %> ,
+            and is manufactured using a <%= data.process %> -nanometer process technology.<%= data.matter %> 
+        </p>
+    </div>
+</div>
+<div class="area">
+    <div class="container1">
+    <div class="card">
+        <div class="box">
+        <div class="percent">
+            <svg class="icon">
+              <circle cx="70" cy="70" r="70"></circle>
+              <circle cx="70" cy="70" r="70"></circle>
+            
+            <svg class="icon">
+                <div class="num">
+                  <h2><%= data.cpu %><span>%</span></h2>
+                </div>
+            </div>
+              <h2 class="text"> CPU performance</h2>
+            </div>
+        </div>
+    </div>
+        <div class="container1">
+        <div class="card">
+            <div class="box">
+            <div class="percent">
+                    <svg class="icon">
+                        <circle cx="70" cy="70" r="70"></circle>
+                        <circle cx="70" cy="70" r="70"></circle>
+                    <svg class="icon">
+                    <div class="num">
+                        <h2><%= data.gaming %><span>%</span></h2>
+                    </div>
+                </div>
+                <h2 class="text">Gaming</h2>
+            </div>
+        </div>
+    </div>
+        <div class="container1">
+        <div class="card">
+            <div class="box">
+            <div class="percent">
+                <svg class="icon">
+                    <circle cx="70" cy="70" r="70"></circle>
+                    <circle cx="70" cy="70" r="70"></circle>
+                <svg class="icon">
+                    <div class="num">
+                        <h2><%= data.battery %><span>%</span></h2>
+                    </div>
+            </div>
+                <h2 class="text">Battery Life</h2>
+            </div>
+        </div>
+    </div> 
+        <div class="container1">
+        <div class="card">
+            <div class="box">
+            <div class="percent">
+                <svg class="icon">
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70"></circle>
+                <svg class="icon">
+                    <div class="num">
+                    <h2><%= data.myReview %><span>%</span></h2>
+                    </div>
+            </div>
+                <h2 class="text">rating</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="alltables">
+    <div class="cputable">
+        <div class = "det">
+            <center><p class="name-table"><b>CPU</b></p></center>
+            <center><hr style="height:2px;width:40%;background:grey;text-align:center;"></center>
+        </div>
+  <table>
+        <tbody>
+            <tr>
+                <td class= " cell-h">Clock Speed</td>
+                <td class=" cell-s"><%= data.clockSpeed %> </td>
+            </tr>
+
+            <tr>
+                <td class="cell-h">Architecture</td>
+                <td class="cell-s">
+                    <ul>
+                        <% (data.cpuArc).forEach(function(result){ %>
+                            <li><%= result %></li>
+                        <%  }); %>
+                        </ul>
+                </td>
+            </tr>
+        
+            <tr>
+                <td class="cell-h">Cores</td>
+                <td class="cell-s"><%= data.cores %></td>
+            </tr>
+        
+            <tr>
+                <td class="cell-h">Frequency</td>
+                <td class="cell-s"><%= data.cpuFreq %></td>
+            </tr>
+        
+            <tr>
+                <td class="cell-h">Instruction set</td>
+                <td class="cell-s"><%= data.instrSet %></td>
+            </tr>
+
+            <tr>
+                <td class="cell-h">L1 cache</td>
+                <td class="cell-s"><%= data.Lone %></td>
+            </tr>
+        
+            <tr>
+                <td class="cell-h">L2 cache</td>
+                <td class="cell-s"><%= data.Ltwo %></td>
+            </tr>
+        
+            <tr>
+                <td class="cell-h">L3 cache</td>
+                <td class="cell-s"><%= data.Lthree %></td>
+            </tr>
+        
+            <tr>
+                <td class="cell-h">Process</td>
+                <td class="cell-s"><%= data.process %></td>
+            </tr>
+        
+            <tr>
+                <td class="cell-h">TDP</td>
+                <td class="cell-s"><%= data.tdp %>W</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="gputable">
+    <div class = "det">
+        <center>
+            <p><b class="name-table">GPU - units and versions</b></p>
+            <center><hr style="height:2px;width:40%;background:grey;text-align:center;"></center>
+        </center>
+    </div>
+    <table>
+        <tbody>
+            <tr>
+                <td class="cell-h">GPU name</td>
+                <td class="cell-s"><%= data.gpu %></td>
+            </tr>
+        
+            <tr>
+                <td class="cell-h">Architecture</td>
+                <td class="cell-s"><%= data.gpuArc %></td>
+            </tr>
+        
+            <tr>
+                <td class="cell-h">GPU frequency</td>
+                <td class="cell-s"><%= data.gpuFreq %></td>
+            </tr>
+        
+            <tr>
+                <td class="cell-h">Execution</td>
+                <td class="cell-s"><%= data.exeunits %></td>
+            </tr>
+        
+            <tr>
+                <td class="cell-h">Shading</td>
+                <td class="cell-s"><%= data.shadunits %></td>
+            </tr>
+        
+            <tr>
+                <td class="cell-h">Vulkan</td>
+                <td class="cell-s"><%= data.vulkan %></td>
+            </tr>
+        
+            <tr>
+                <td class="cell-h">OpenCL</td>
+                <td class="cell-s"><%= data.opencl %></td>
+            </tr>
+        
+            <tr>
+                <td class="cell-h">DirectX</td>
+                <td class="cell-s"><%= data.directX %></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="memorytable">
+    <div class = "det">
+        <center><p class="name-table"><b>Memory</b></p></center>
+        <center><hr style="height:2px;width:40%;background:grey;text-align:center;"></center>
+    </div>
+    <table>  
+        <tbody>
+            <tr>
+                <td class="cell-h">Memory type</td>
+                <td class="cell-s"><%= data.memoryType %></td>
+            </tr>
+        
+            <tr>
+                <td class="cell-h">Memory frequency</td>
+                <td class="cell-s"><%= data.memFreq %> MHz</td>
+            </tr>
+        
+            <tr>
+                <td class="cell-h">Bus</td>
+                <td class="cell-s"><%= data.bus %></td>
+            </tr>
+        
+            <tr>
+                <td class="cell-h">Max size</td>
+                <td class="cell-s"><%= data.maxSize %></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="results">
+    <div class="antutu">
+        <div class="namet">
+        <p>AnTutu v9</p>
+        <center><hr style="height:2px;width:40%;background:grey;text-align:center;"></center>
+        </div>
+        <center><b><p class="rate"><%= data.antutu %></p></b></center>
+        
+    </div>
+    <div class="geek">
+        <div class="namet">
+        <p>Geek Bench 5</p>
+        <center><hr style="height:2px;width:40%;background:grey;text-align:center;"></center>
+        </div>
+        <p>Single core <b><%= data.singleCore %></b></p>
+        <p class="rate"><br>Multi core <b><%= data.multiCore %></b></p>
+    </div>
+</div>
+</div>
+<div class="alltables">
+    <div class="multimediatable">
+      <div class = "det">
+          <center><p class="name-table"><b>Multimedia</b></p></center>
+          <center><hr style="height:2px;width:40%;background:grey;text-align:center;"></center>
+      </div>
+      <table>
+          <tbody>
+            <tr>
+                <td class="cell-h">Neural processor (NPU)</td>
+                <td class="cell-s"><%= data.npu %></td>
+            </tr>
+        
+            <tr>
+                <td class="cell-h">Storage type</td>
+                <td class="cell-s"><%= data.bus %></td>
+            </tr>
+        
+            <tr>
+                <td class="cell-h">Max display resolution</td>
+                <td class="cell-s"><%= data.maxDis %></td>
+            </tr>
+        
+            <tr>
+                <td class="cell-h">Max camera resolution</td>
+                <td class="cell-s"><%= data.maxCam %></td>
+            </tr>
+        
+            <tr>
+                <td class="cell-h">video capture</td>
+                <td class="cell-s"><%= data.videoCap %></td>
+            </tr>
+        
+            <tr>
+                <td class="cell-h">video playback</td>
+                <td class="cell-s"><%= data.videoPlay %></td>
+            </tr>
+        
+            <tr>
+                <td class="cell-h">video codecs</td>
+                <td class="cell-s"><%= data.videoCodec %></td>
+            </tr>
+        
+            <tr>
+                <td class="cell-h">Audio codecs</td>
+                <td class="cell-s"><%= data.audioCodec %></td>
+            </tr>	
+          </tbody>
+      </table>
+    </div>
+    <div class="networktable">
+      <div class = "det">
+          <center>
+              <p class="name-table"><b>Network</b></p>
+              <center><hr style="height:2px;width:40%;background:grey;text-align:center;"></center>
+          </center>
+      </div>
+      <table>
+          <tbody>
+                          <tr>
+                              <td class="cell-h">Modem</td>
+                              <td class="cell-s"><%= data.modem %></td>
+                          </tr>
+                      
+                          <tr>
+                              <td class="cell-h">4G support</td>
+                              <td class="cell-s"><%= data.fourg %></td>
+                          </tr>
+                      
+                          <tr>
+                              <td class="cell-h">5G support</td>
+                              <td class="cell-s"><%= data.fiveg %></td>
+                          </tr>
+                      
+                          <tr>
+                              <td class="cell-h">Peak Download speed</td>
+                              <td class="cell-s"><%= data.peakDown %></td>
+                          </tr>
+                      
+                          <tr>
+                              <td class="cell-h">Peak Upload speed</td>
+                              <td class="cell-s"><%= data.peakUp %></td>
+                          </tr>
+                      
+                          <tr>
+                              <td class="cell-h">Wi-Fi</td>
+                              <td class="cell-s"><%= data.wifi %></td>
+                          </tr>
+                      
+                          <tr>
+                              <td class="cell-h">Bluetooth</td>
+                              <td class="cell-s"><%= data.bluetooth %></td>
+                          </tr>
+                      
+                          <tr>
+                              <td class="cell-h">Navigation</td>
+                              <td class="cell-s"><%= data.nav %></td>
+                          </tr>
+                      
+          </tbody>
+      </table>
+    </div>
+  <div class="displaytable">
+      <div class = "det">
+          <center>
+              <p class="name-table"><b>Display</b></p>
+              <center><hr style="height:2px;width:40%;background:grey;text-align:center;"></center>
+          </center>
+      </div>
+      <table>
+                  <tbody>
+                      <tr>
+                          <td class="cell-h">Max On-Device Display</td>
+                          <td class="cell-s"><%= data.maxDis %> </td>
+                      </tr>
+                      <tr>
+                          <td class="cell-h">Max External Display</td>
+                          <td class="cell-s"><%= data.extDis %> </td>
+                      </tr>
+                      <tr>
+                          <td class="cell-h">HDR</td>
+                          <td class="cell-s"><%= data.hdr %> </td>
+                      </tr>
+                      <tr>
+                          <td class="cell-h">Color Depth</td>
+                          <td class="cell-s"><%= data.colorDepth %> </td>
+                      </tr>
+                      <tr>
+                          <td class="cell-h">Color Gamut</td>
+                          <td class="cell-s"><%= data.colorgamut %> </td>
+                      </tr>
+                  </tbody>
+              </table>
+            </div>
+</div>
+<div class="phones">
+  <div class="Mob">
+      <p><h2>Other Info</h2></p>
+      <p class="showoff"><b>Mobiles with <%= data.name %> : </b> </p>
+  </div>
+  <ul>
+        <% (data.phones).forEach(function(result){ %>
+            <li><%= result %></li>
+        <%  }); %>
+    </ul>
+</div>
+<div class="give-info">
+  <br><p><b>What is AnTutu ? </b></p>
+      <div>
+          <p>
+            The AnTuTu Benchmark measures CPU, GPU, RAM, and I/O performance in different scenarios.<br><br>
+            <br><p><b>What is GeekBench ? </b></p>
+            The GeekBench test shows raw single-threaded and multithreaded CPU performance.
+          </p>
+      </div>
+</div>
+
+<%- include ('partials/footer') %>
