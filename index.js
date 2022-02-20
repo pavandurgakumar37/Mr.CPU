@@ -222,7 +222,8 @@ app.get('/comparem/:id1/:id2',(req,res)=>{
 app.get("*",function(req,res){
     res.send("some thing went wrong");
 });
-
+/*
 app.listen(3000,()=>{
     console.log("Hey boi i'm on 3000, come!");
-})
+})*/
+app.listen(process.env.PORT,process.env.IP);
