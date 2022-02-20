@@ -6,9 +6,9 @@ const _ = require('underscore');
 const bodyParser = require("body-parser");
 const { urlencoded } = require("body-parser");
 const url = 'mongodb://localhost:27017';
-const MongoClient = require('mongodb').MongoClient;
+//const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
-const client = new MongoClient(url);
+//const client = new MongoClient(url);
 const dbName = 'MrCPU';
 var ObjectId = require('mongodb').ObjectID;
 const mongoDB = require('mongodb');
@@ -18,69 +18,75 @@ app.use(express.static("public"));
 app.set("view engine", "ejs");
 
 //mongoose.connect('mongodb://localhost:27017/MrCPU');
-client.connect(function(err){
-    assert.equal(null, err);
-    console.log("Connected successfully to the server");
-    const db = client.db(dbName);
+const { MongoClient, ServerApiVersion } = require('mongodb');
+const uri = "mongodb+srv://MrCPU:mrcpu1234@cluster0.tglcx.mongodb.net/MrCPU?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
+client.connect(err => {
+  const collection = client.db("MrCPU").collection("Details");
+  // perform actions on the collection object
+  //client.close();
 });
 
-var topicSchema = new mongoose.Schema({
-    name: String,
-    antutu: String,
-    singleCore: Number,
-    multiCore:Number,
-    cpu: Number,
-    gaming: Number,
-    battery: Number,
-    cores: Number,
-    cpuArc: String,
-    cpuFreq: Number,
-    instrSet: String, 
-    Lone: String,
-    Ltwo: String,
-    Lthree: String,
-    process: Number,
-    tdp: Number,
-    gpu: String,
-    gpuArc: String,
-    gpuFreq:String,
-    exeunits: Number,
-    shadunits: Number,
-    Flops: String,
-    vulkan: String,
-    opencl: Number,
-    directX: Number,
-    memoryType: String,
-    memFreq: Number,
-    bus: String,
-    maxBand: String,
-    maxSize: Number,
-    npu: String,
-    memType: String,
-    maxDis: String,
-    extDis: String,
+
+var topicSchema =new mongoose.Schema({
+    name : String,
+	antutu : Number,
+    singleCore : Number,
+    multiCore : Number,
+    cpu : Number,
+    gaming :Number,
+    battery : Number,
+    myReview : Number,
+    cores :Number,
+    cpuArc : [],
+    cpuFreq : Number,
+    instrSet : String,
+    Lone : String,
     hdr: String,
-    colorDepth: String,
     colorgamut: String,
-    maxCam: String,
-    videoCap: String,
-    videoPlay: String,
-    videoCodec: String,
-    audioCodec: String,
-    modem: String,
-    phones: [String],
-    fourg: String,
-    fiveg: String,
-    peakDown: String,
-    peakUp: String,
-    wifi: Number,
-    bluetooth: String,
-    nav: String,
-    class: String,
-    year: Number,
-    official: String,
-    matter: String
+    colorDepth: String,
+    extDis: String,
+    Ltwo : String,
+    Lthree : String,
+    process : Number,
+    tdp : Number,
+    gpu : String,
+    gpuArc : String,
+    gpuFreq : Number,
+    exeunits : Number,
+    shadunits : Number,
+    Flops : String,
+    vulkan : String,
+    opencl : Number,
+    directX : Number,
+    memoryType : String,
+    memFreq : Number,
+    bus : String,
+    maxBand : String,
+    maxSize :Number,
+    npu : String,
+    memType : String,
+    maxDis :String,
+    maxCam : String,
+    videoCap :String,
+    videoPlay : String,
+    videoCodec : String,
+    audioCodec : String,
+    modem : String,
+    phones : [],
+    fourg : String,
+    fiveg : String,
+    peakDown : String,
+    peakUp : String,
+    wifi : Number,
+    bluetooth : String, 
+    nav : String,
+    class : String,
+    year : Number,
+    official : String,
+    matter : String
 });
+
 
 var Details = mongoose.model("Details",topicSchema);
 
@@ -112,9 +118,7 @@ app.get('/pc',(req,res)=>{
     });
 })
 
-app.get('/explore',(req,res)=>{
-    res.render('explore');
-})
+
 
 app.get("/templates",(req,res)=>{
     const db = client.db(dbName);
@@ -123,6 +127,17 @@ app.get("/templates",(req,res)=>{
     collection.find({}).toArray(function(err,docs){
         assert.equal(err, null);
         res.render('compare',{'top':docs})
+    });
+})
+
+app.get("/all",(req,res)=>{
+    const db = client.db(dbName);
+    const collection = db.collection('Details');
+
+    collection.find({}).toArray(function(err,docs){
+        assert.equal(err, null);
+        //res.render('templates',{'top':docs})
+        res.json(docs);
     });
 })
 
@@ -153,12 +168,23 @@ app.get('/comparem',(req,res)=>{
     });
 })
 
+app.get('/explore',(req,res)=>{
+    res.render('explore');
+})
+
 app.get('/compare',(req,res)=>{
     res.render('compare');
 })
 
 app.get('/about',(req,res)=>{
     res.render('about');
+})
+
+app.get('/recent',(req,res)=>{
+    res.render('comingsoon')
+})
+app.get('/comingsoon',(req,res)=>{
+    res.render('comingsoon')
 })
 
 app.get('/toplist',(req,res)=>{
@@ -174,12 +200,7 @@ app.get('/toplist',(req,res)=>{
         res.render('toplist',{'top':docs})
     });
 })
-app.get('/recent',(req,res)=>{
-    res.render('comingsoon')
-})
-app.get('/comingsoon',(req,res)=>{
-    res.render('comingsoon')
-})
+
 app.get('/comparem/:id1/:id2',(req,res)=>{
     const db = client.db(dbName);
     const collection = db.collection('Details');
