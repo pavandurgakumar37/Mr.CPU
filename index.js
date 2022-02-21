@@ -19,7 +19,7 @@ app.set("view engine", "ejs");
 
 //mongoose.connect('mongodb://localhost:27017/MrCPU');
 const { MongoClient, ServerApiVersion } = require('mongodb');
-const uri = "mongodb+srv://MrCPU:mrcpu1234@cluster0.tglcx.mongodb.net/MrCPU?retryWrites=true&w=majority";
+const uri = process.env.SECRET;
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 });
 client.connect(err => {
   const collection = client.db("MrCPU").collection("Details");
