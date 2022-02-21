@@ -168,7 +168,9 @@ app.get('/comparem',(req,res)=>{
     });
 })
 
-app.get('/comparel',(req,res)=>{ res.render('comingsoon')})
+app.get('/comparel',(req,res)=>{
+	res.render('comingsoon');
+})
 
 app.get('/explore',(req,res)=>{
     res.render('explore');
