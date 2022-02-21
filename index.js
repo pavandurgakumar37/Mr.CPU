@@ -226,4 +226,5 @@ app.get("*",function(req,res){
 app.listen(3000,()=>{
     console.log("Hey boi i'm on 3000, come!");
 })*/
-app.listen(process.env.PORT,process.env.IP);
+const port = process.env.PORT || 3000 ;
+app.listen(port,process.env.IP);
